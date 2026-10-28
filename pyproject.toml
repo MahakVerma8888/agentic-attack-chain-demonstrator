@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "attackchain"
+version = "0.1.0"
+description = "Correlate Nmap and Nuclei findings into MITRE ATT&CK-mapped attack-chain reports."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Mahak Verma" }]
+dependencies = []
+
+[project.scripts]
+attackchain = "attackchain.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
