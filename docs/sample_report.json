@@ -1,0 +1,92 @@
+[
+  {
+    "host": "192.0.2.10",
+    "rating": "critical",
+    "score": 38,
+    "tactics": [
+      "initial-access",
+      "execution",
+      "credential-access",
+      "lateral-movement"
+    ],
+    "narrative": "Host 192.0.2.10 exposes weaknesses across 4 tactics, so an adversary could plausibly combine them as follows:\n\n1. **Initial Access** via Valid Accounts: Default Accounts (T1078.001), supported by: Admin Panel Default Credentials.\n2. **Initial Access** via External Remote Services (T1133), supported by: Open tcp/22 (ssh).\n3. **Initial Access** via Exploit Public-Facing Application (T1190), supported by: Apache HTTP Server Path Traversal and RCE, Open tcp/3306 (mysql).\n4. **Execution** via Command and Scripting Interpreter (T1059), supported by: Apache HTTP Server Path Traversal and RCE.\n5. **Credential Access** via Brute Force (T1110), supported by: Open tcp/22 (ssh).\n6. **Credential Access** via Unsecured Credentials: Credentials In Files (T1552.001), supported by: Exposed .env Configuration File.\n7. **Lateral Movement** via Remote Services: SMB/Windows Admin Shares (T1021.002), supported by: Open tcp/445 (microsoft-ds).",
+    "steps": [
+      {
+        "technique": "T1078.001",
+        "name": "Valid Accounts: Default Accounts",
+        "tactic": "initial-access",
+        "findings": [
+          "Admin Panel Default Credentials"
+        ]
+      },
+      {
+        "technique": "T1133",
+        "name": "External Remote Services",
+        "tactic": "initial-access",
+        "findings": [
+          "Open tcp/22 (ssh)"
+        ]
+      },
+      {
+        "technique": "T1190",
+        "name": "Exploit Public-Facing Application",
+        "tactic": "initial-access",
+        "findings": [
+          "Open tcp/3306 (mysql)",
+          "Apache HTTP Server Path Traversal and RCE"
+        ]
+      },
+      {
+        "technique": "T1059",
+        "name": "Command and Scripting Interpreter",
+        "tactic": "execution",
+        "findings": [
+          "Apache HTTP Server Path Traversal and RCE"
+        ]
+      },
+      {
+        "technique": "T1110",
+        "name": "Brute Force",
+        "tactic": "credential-access",
+        "findings": [
+          "Open tcp/22 (ssh)"
+        ]
+      },
+      {
+        "technique": "T1552.001",
+        "name": "Unsecured Credentials: Credentials In Files",
+        "tactic": "credential-access",
+        "findings": [
+          "Exposed .env Configuration File"
+        ]
+      },
+      {
+        "technique": "T1021.002",
+        "name": "Remote Services: SMB/Windows Admin Shares",
+        "tactic": "lateral-movement",
+        "findings": [
+          "Open tcp/445 (microsoft-ds)"
+        ]
+      }
+    ]
+  },
+  {
+    "host": "192.0.2.20",
+    "rating": "low",
+    "score": 0,
+    "tactics": [
+      "reconnaissance"
+    ],
+    "narrative": "Host 192.0.2.20 shows an isolated weakness (single tactic):\n\n1. **Reconnaissance** via Gather Victim Host Information: Software (T1592.002), supported by: nginx Version Detection.",
+    "steps": [
+      {
+        "technique": "T1592.002",
+        "name": "Gather Victim Host Information: Software",
+        "tactic": "reconnaissance",
+        "findings": [
+          "nginx Version Detection"
+        ]
+      }
+    ]
+  }
+]
